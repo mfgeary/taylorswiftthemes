@@ -4,7 +4,7 @@
 \alias{display_taylor_all}
 \title{Display all color palettes}
 \usage{
-display_taylor_all(n = NULL, select = NULL, exact.n = TRUE)
+display_taylor_all(n = NULL, select = NULL, exact.n = FALSE)
 }
 \arguments{
 \item{n}{The number of values to display from the palette}

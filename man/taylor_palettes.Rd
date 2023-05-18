@@ -5,7 +5,7 @@
 \alias{taylor_palettes}
 \title{Complete list of palettes}
 \format{
-An object of class \code{list} of length 24.
+An object of class \code{list} of length 34.
 }
 \usage{
 taylor_palettes
