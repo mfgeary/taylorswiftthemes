@@ -34,7 +34,6 @@ display_taylor_pal <- function(name, n = 10){
 #' @return An image showing all palettes
 #' @export
 display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
-    totallist <- names(taylor_palettes)
     gaplist <- ""
     totallist <- c(
       taylor_palettes[grep("debut", names(taylor_palettes))],
@@ -84,12 +83,10 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
       names(taylor_palettes[grep("all|eras|karma", names(taylor_palettes))])
     )
 
-
-    totallist <- rev(totallist)
-
-    totnum <- rev(lengths(totallist, use.names = FALSE))
+    totnum <- lengths(totallist, use.names = FALSE)
     totnum[totnum == 1] <- 5
 
+    print(totallist)
     if (!is.null(select)) {
       totallist <- totallist[select]
       totnum <- totnum[select]
@@ -121,7 +118,7 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
     nr <- length(totallist)
     nc <- max(n)
 
-    totallist <- rev(names(totallist))
+    totallist <- names(totallist)
     ylim <- c(0,nr)
     oldpar <- par(mgp=c(2,0.25,0))
     on.exit(par(oldpar))
@@ -130,8 +127,6 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
     for(i in 1:nr) {
       nj <- n[i]
       if (grepl("gap", totallist[i])) next
-      print(totallist[i])
-      print(nj)
       shadi <- taylor_palette(totallist[i], nj)
       rect(xleft=0:(nj-1), ybottom=i-1, xright=1:nj, ytop=i-0.2, col=shadi,
          border="light grey")
