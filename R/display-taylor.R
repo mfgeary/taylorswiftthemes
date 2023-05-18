@@ -33,10 +33,59 @@ display_taylor_pal <- function(name, n = 10){
 #'
 #' @return An image showing all palettes
 #' @export
-display_taylor_all <- function (n=NULL, select=NULL, exact.n=TRUE) {
-
+display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
     totallist <- names(taylor_palettes)
-    totnum <- length(totallist)
+    # gaplist <- ""
+    # totallist <- c(
+    #   taylor_palettes[grep("debut", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("fearless", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("speak_now", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("red", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("nineteen", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("reputation", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("lover", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("folklore", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("evermore", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("midnights", names(taylor_palettes))],
+    #   gaplist,
+    #   taylor_palettes[grep("all_albums|eras|karma", names(taylor_palettes))]
+    # )
+    #
+    # names(totallist) <- c(
+    #   names(taylor_palettes[grep("debut", names(taylor_palettes))]),
+    #   "gap1",
+    #   names(taylor_palettes[grep("fearless", names(taylor_palettes))]),
+    #   "gap2",
+    #   names(taylor_palettes[grep("speak", names(taylor_palettes))]),
+    #   "gap3",
+    #   names(taylor_palettes[grep("red", names(taylor_palettes))]),
+    #   "gap4",
+    #   names(taylor_palettes[grep("nineteen", names(taylor_palettes))]),
+    #   "gap5",
+    #   names(taylor_palettes[grep("reputation", names(taylor_palettes))]),
+    #   "gap6",
+    #   names(taylor_palettes[grep("lover", names(taylor_palettes))]),
+    #   "gap7",
+    #   names(taylor_palettes[grep("folklore", names(taylor_palettes))]),
+    #   "gap8",
+    #   names(taylor_palettes[grep("evermore", names(taylor_palettes))]),
+    #   "gap9",
+    #   names(taylor_palettes[grep("midnights", names(taylor_palettes))]),
+    #   "gap10",
+    #   names(taylor_palettes[grep("all|eras|karma", names(taylor_palettes))])
+    # )
+
+    totallist <- rev(totallist)
+    totnum <- rev(lengths(taylor_palettes, use.names = FALSE))
 
     if (!is.null(select)) {
       totallist <- totallist[select]
@@ -46,27 +95,26 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=TRUE) {
                  paste(select[is.na(totallist)],
                        collapse=" ")))
     }
-
+print(totallist)
     if(is.null(n)) n <- 10
     if(length(n)==1) n <- rep(n, length(totallist))
 
-    if(exact.n){
-      keep <- n<=10
+    if(exact.n) {
+      keep <- n <= totnum
       totallist <- totallist[keep]
       n <- n[keep]
       totnum <- totnum[keep]
     }
-    maxnum <- 10
-    colorlist <- rev(totallist)
-    if (any(n < 3) | exact.n & any(n>maxnum)|
-        length(n)!=length(colorlist)){
+
+    if (any(n < 3) | exact.n & any(n > totnum)|
+        length(n) != length(totallist)){
       warning("Illegal vector of color numbers")
       print(paste(n, collapse=" "))
     }
-    n[n<3] <- 3
-    n[n>maxnum] <- maxnum[n>maxnum]
+    n[n < 3] <- 3
+    n[n > totnum] <- totnum[n > totnum]
 
-    nr <- length(colorlist)
+    nr <- length(totallist)
     nc <- max(n)
 
     ylim <- c(0,nr)
@@ -76,10 +124,10 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=TRUE) {
          xlab="",ylab="")
     for(i in 1:nr)
     {nj <- n[i]
-    if (colorlist[i]=="") next
-    shadi <- taylor_palette(colorlist[i], nj)
+    if (totallist[i]=="") next
+    shadi <- taylor_palette(totallist[i], nj)
     rect(xleft=0:(nj-1), ybottom=i-1, xright=1:nj, ytop=i-0.2, col=shadi,
          border="light grey")
     }
-    text(rep(-0.1,nr),(1:nr)-0.6, labels=colorlist, xpd=TRUE, adj=1)
+    text(rep(-0.1,nr),(1:nr)-0.6, labels=totallist, xpd=TRUE, adj=1)
 }
