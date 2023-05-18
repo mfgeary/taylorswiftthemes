@@ -86,7 +86,6 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
     totnum <- lengths(totallist, use.names = FALSE)
     totnum[totnum == 1] <- 5
 
-    print(totallist)
     if (!is.null(select)) {
       totallist <- totallist[select]
       totnum <- totnum[select]
