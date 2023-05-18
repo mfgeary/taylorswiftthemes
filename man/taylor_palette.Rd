@@ -4,10 +4,14 @@
 \alias{taylor_palette}
 \title{Get a palette for Taylor Swift albums}
 \usage{
-taylor_palette(name, n, type = c("discrete", "continuous"), direction = 1)
+taylor_palette(name, n, type = c("discrete", "continuous"))
 }
 \arguments{
-\item{palette}{The name of the desired palette.}
+\item{name}{The name of the desired palette.}
+
+\item{n}{The number of items in the palette}
+
+\item{type}{The type of the palette, either c("discrete", "continuous")}
 }
 \value{
 The resulting palette.

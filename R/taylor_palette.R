@@ -32,11 +32,13 @@ taylor_palettes <- list(
 
 #' Get a palette for Taylor Swift albums
 #'
-#' @param palette The name of the desired palette.
+#' @param name The name of the desired palette.
+#' @param n The number of items in the palette
+#' @param type The type of the palette, either c("discrete", "continuous")
 #'
 #' @return The resulting palette.
 #' @export
-taylor_palette <- function(name, n, type = c("discrete", "continuous"), direction = 1) {
+taylor_palette <- function(name, n, type = c("discrete", "continuous")) {
   type <- match.arg(type)
 
   pal <- taylor_palettes[[name]]
