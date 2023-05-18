@@ -35,57 +35,60 @@ display_taylor_pal <- function(name, n = 10){
 #' @export
 display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
     totallist <- names(taylor_palettes)
-    # gaplist <- ""
-    # totallist <- c(
-    #   taylor_palettes[grep("debut", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("fearless", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("speak_now", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("red", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("nineteen", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("reputation", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("lover", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("folklore", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("evermore", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("midnights", names(taylor_palettes))],
-    #   gaplist,
-    #   taylor_palettes[grep("all_albums|eras|karma", names(taylor_palettes))]
-    # )
-    #
-    # names(totallist) <- c(
-    #   names(taylor_palettes[grep("debut", names(taylor_palettes))]),
-    #   "gap1",
-    #   names(taylor_palettes[grep("fearless", names(taylor_palettes))]),
-    #   "gap2",
-    #   names(taylor_palettes[grep("speak", names(taylor_palettes))]),
-    #   "gap3",
-    #   names(taylor_palettes[grep("red", names(taylor_palettes))]),
-    #   "gap4",
-    #   names(taylor_palettes[grep("nineteen", names(taylor_palettes))]),
-    #   "gap5",
-    #   names(taylor_palettes[grep("reputation", names(taylor_palettes))]),
-    #   "gap6",
-    #   names(taylor_palettes[grep("lover", names(taylor_palettes))]),
-    #   "gap7",
-    #   names(taylor_palettes[grep("folklore", names(taylor_palettes))]),
-    #   "gap8",
-    #   names(taylor_palettes[grep("evermore", names(taylor_palettes))]),
-    #   "gap9",
-    #   names(taylor_palettes[grep("midnights", names(taylor_palettes))]),
-    #   "gap10",
-    #   names(taylor_palettes[grep("all|eras|karma", names(taylor_palettes))])
-    # )
+    gaplist <- ""
+    totallist <- c(
+      taylor_palettes[grep("debut", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("fearless", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("speak_now", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("red", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("nineteen", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("reputation", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("lover", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("folklore", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("evermore", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("midnights", names(taylor_palettes))],
+      gaplist,
+      taylor_palettes[grep("all_albums|eras|karma", names(taylor_palettes))]
+    )
+
+    names(totallist) <- c(
+      names(taylor_palettes[grep("debut", names(taylor_palettes))]),
+      "gap1",
+      names(taylor_palettes[grep("fearless", names(taylor_palettes))]),
+      "gap2",
+      names(taylor_palettes[grep("speak", names(taylor_palettes))]),
+      "gap3",
+      names(taylor_palettes[grep("red", names(taylor_palettes))]),
+      "gap4",
+      names(taylor_palettes[grep("nineteen", names(taylor_palettes))]),
+      "gap5",
+      names(taylor_palettes[grep("reputation", names(taylor_palettes))]),
+      "gap6",
+      names(taylor_palettes[grep("lover", names(taylor_palettes))]),
+      "gap7",
+      names(taylor_palettes[grep("folklore", names(taylor_palettes))]),
+      "gap8",
+      names(taylor_palettes[grep("evermore", names(taylor_palettes))]),
+      "gap9",
+      names(taylor_palettes[grep("midnights", names(taylor_palettes))]),
+      "gap10",
+      names(taylor_palettes[grep("all|eras|karma", names(taylor_palettes))])
+    )
+
 
     totallist <- rev(totallist)
-    totnum <- rev(lengths(taylor_palettes, use.names = FALSE))
+
+    totnum <- rev(lengths(totallist, use.names = FALSE))
+    totnum[totnum == 1] <- 5
 
     if (!is.null(select)) {
       totallist <- totallist[select]
@@ -95,7 +98,7 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
                  paste(select[is.na(totallist)],
                        collapse=" ")))
     }
-print(totallist)
+
     if(is.null(n)) n <- 10
     if(length(n)==1) n <- rep(n, length(totallist))
 
@@ -114,20 +117,25 @@ print(totallist)
     n[n < 3] <- 3
     n[n > totnum] <- totnum[n > totnum]
 
+
     nr <- length(totallist)
     nc <- max(n)
 
+    totallist <- rev(names(totallist))
     ylim <- c(0,nr)
     oldpar <- par(mgp=c(2,0.25,0))
     on.exit(par(oldpar))
     plot(1,1,xlim=c(0,nc),ylim=ylim,type="n", axes=FALSE, bty="n",
          xlab="",ylab="")
-    for(i in 1:nr)
-    {nj <- n[i]
-    if (totallist[i]=="") next
-    shadi <- taylor_palette(totallist[i], nj)
-    rect(xleft=0:(nj-1), ybottom=i-1, xright=1:nj, ytop=i-0.2, col=shadi,
+    for(i in 1:nr) {
+      nj <- n[i]
+      if (grepl("gap", totallist[i])) next
+      print(totallist[i])
+      print(nj)
+      shadi <- taylor_palette(totallist[i], nj)
+      rect(xleft=0:(nj-1), ybottom=i-1, xright=1:nj, ytop=i-0.2, col=shadi,
          border="light grey")
     }
+
     text(rep(-0.1,nr),(1:nr)-0.6, labels=totallist, xpd=TRUE, adj=1)
 }
