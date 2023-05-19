@@ -68,6 +68,8 @@ taylor_palette <- function(name, n, type = c("discrete", "continuous")) {
   } else {
     out <- grDevices::colorRampPalette(pal)(n)
   }
+
+  structure(out, class = "palette", name = name)
 }
 
 #' Create a reversible, manual palette
