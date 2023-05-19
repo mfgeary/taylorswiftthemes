@@ -15,7 +15,7 @@ taylor_palettes <- list(
   speak_now_TV3 = c("#7f00ff", "#844abb", "#a32aa3", "#88368a", "#bd9b51"),
   red_TV = c("#961710", "#8a6d58", "#290c07", "#691801", "#acae9c", "#57503b", "#ab3b32", "#c0a78f", "#71503a", "#739b9c"),
   red_TV2 = c("#e04754", "#ffcbdd", "#7c0b2b", "#d10000", "#3e000c", "#568d66", "#004733", "#e28080", "#e95555", "#ef2b2b"),
-  red_TV3 = c("#bca38d", "#9e7c60", "#954d25", "#951e1a", "#951e1a"),
+  red_TV3 = c("#bca38d", "#9e7c60", "#954d25", "#951e1a", "#48462f"),
   nineteen_eighty_nine = c("#94767e", "#d9d7e2", "#424959", "#7a9bbd", "#c2bab0", "#878d9c", "#a26548", "#bd997c", "#5980aa", "#c7ad8c"),
   nineteen_eighty_nine2 = c("#ced1fd", "#d6ebff", "#8fc6da", "#9ea0e4","#7993ef", "#c38584", "#ded6f2", "#ae418d", "#c9673b","#f38485"),
   nineteen_eighty_nine3 = c("#d2bd88", "#dcc9a8", "#d7e9ff", "#c7b8e3", "#b9bfe3"),
