@@ -10,7 +10,9 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%",
-  fig.height = 1
+  fig.height = 1,
+  message = FALSE,
+  warning = FALSE
 )
 ```
 
@@ -28,14 +30,9 @@ You can install the development version of taylorswiftthemes from [GitHub](https
 ``` {r, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("mfgeary/taylorswiftthemes")
-```
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example, eval = FALSE}
 library(taylorswiftthemes)
 ```
+
 ```{r, echo = FALSE}
 devtools::load_all()
 ```

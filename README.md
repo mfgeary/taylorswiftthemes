@@ -16,17 +16,8 @@ You can install the development version of taylorswiftthemes from
 ``` r
 # install.packages("devtools")
 devtools::install_github("mfgeary/taylorswiftthemes")
-```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
 library(taylorswiftthemes)
 ```
-
-    #> ℹ Loading taylorswiftthemes
 
 ## All Palettes
 
