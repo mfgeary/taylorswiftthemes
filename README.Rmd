@@ -43,7 +43,11 @@ display_taylor_all()
 ```
 
 ```{r}
+taylor_palette("lover")
+
 display_taylor_pal("karma")
+
+taylor_palette("eras_tour")
 
 display_taylor_pal("speak_now_TV2")
 ```
