@@ -9,7 +9,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  fig.height = 1
 )
 ```
 
@@ -38,17 +39,109 @@ library(taylorswiftthemes)
 
 ## All Palettes
 
-```{r}
+```{r, fig.height=4}
 display_taylor_all()
 ```
 
+## Debut (2006)
 ```{r}
-taylor_palette("lover")
-taylor_palette("eras_tour")
+taylor_palette("debut")
+
+taylor_palette("debut2")
+
+taylor_palette("debut3")
 ```
 
+## Fearless (Taylor's Version) (2021)
 ```{r}
-display_taylor_pal("karma")
-display_taylor_pal("speak_now_TV2")
+taylor_palette("fearless_TV")
+
+taylor_palette("fearless_TV2")
+
+taylor_palette("fearless_TV3")
+
+```
+
+## Speak Now (Taylor's Version) (2023)
+```{r}
+taylor_palette("speak_now_TV")
+
+taylor_palette("speak_now_TV2")
+
+taylor_palette("speak_now_TV3")
+```
+
+## Red (Taylor's Version) (2021)
+```{r}
+taylor_palette("red_TV")
+
+taylor_palette("red_TV2")
+
+taylor_palette("red_TV3")
+```
+
+## 1989 (2014)
+```{r}
+taylor_palette("nineteen_eighty_nine")
+
+taylor_palette("nineteen_eighty_nine2")
+
+taylor_palette("nineteen_eighty_nine3")
+```
+
+## Reputation (2017)
+```{r}
+taylor_palette("reputation")
+
+taylor_palette("reputation2")
+
+taylor_palette("reputation3")
+```
+
+## Lover (2019)
+```{r}
+taylor_palette("lover")
+
+taylor_palette("lover2")
+
+taylor_palette("lover3")
+```
+
+## Folklore (2020)
+```{r}
+taylor_palette("folklore")
+
+taylor_palette("folklore2")
+
+taylor_palette("folklore3")
+```
+
+## Evermore (2020)
+```{r}
+taylor_palette("evermore")
+
+taylor_palette("evermore2")
+
+taylor_palette("evermore3")
+```
+
+## Midnights (2022)
+```{r}
+taylor_palette("midnights")
+
+taylor_palette("midnights2")
+
+taylor_palette("midnights3")
+```
+
+## Eras Tour
+```{r}
+taylor_palette("all_albums")
+
+taylor_palette("all_albums2")
+
+taylor_palette("eras_tour")
+
+taylor_palette("karma")
 ```
 
