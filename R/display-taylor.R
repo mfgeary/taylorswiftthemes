@@ -83,6 +83,7 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
       names(taylor_palettes[grep("all|eras|karma", names(taylor_palettes))])
     )
 
+    totallist <- rev(totallist)
     totnum <- lengths(totallist, use.names = FALSE)
     totnum[totnum == 1] <- 5
 
@@ -131,5 +132,6 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
          border="light grey")
     }
 
-    text(rep(-0.1,nr),(1:nr)-0.6, labels=totallist, xpd=TRUE, adj=1)
+    labellist <- ifelse(grepl("gap", totallist), "", totallist)
+    text(rep(-0.1,nr),(1:nr)-0.6, labels=labellist, xpd=TRUE, adj=1)
 }
