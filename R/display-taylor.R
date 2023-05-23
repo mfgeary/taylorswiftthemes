@@ -38,11 +38,11 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
     totallist <- c(
       taylor_palettes[grep("debut", names(taylor_palettes))],
       gaplist,
-      taylor_palettes[grep("fearless", names(taylor_palettes))],
+      taylor_palettes[grep("fearless_TV", names(taylor_palettes))],
       gaplist,
-      taylor_palettes[grep("speak_now", names(taylor_palettes))],
+      taylor_palettes[grep("speak_now_TV", names(taylor_palettes))],
       gaplist,
-      taylor_palettes[grep("red", names(taylor_palettes))],
+      taylor_palettes[grep("red_TV", names(taylor_palettes))],
       gaplist,
       taylor_palettes[grep("nineteen", names(taylor_palettes))],
       gaplist,
@@ -56,17 +56,17 @@ display_taylor_all <- function (n=NULL, select=NULL, exact.n=FALSE) {
       gaplist,
       taylor_palettes[grep("midnights", names(taylor_palettes))],
       gaplist,
-      taylor_palettes[grep("all_albums|eras|karma", names(taylor_palettes))]
+      taylor_palettes[grep("all|eras|karma", names(taylor_palettes))]
     )
 
     names(totallist) <- c(
       names(taylor_palettes[grep("debut", names(taylor_palettes))]),
       "gap1",
-      names(taylor_palettes[grep("fearless", names(taylor_palettes))]),
+      names(taylor_palettes[grep("fearless_TV", names(taylor_palettes))]),
       "gap2",
-      names(taylor_palettes[grep("speak", names(taylor_palettes))]),
+      names(taylor_palettes[grep("speak_now_TV", names(taylor_palettes))]),
       "gap3",
-      names(taylor_palettes[grep("red", names(taylor_palettes))]),
+      names(taylor_palettes[grep("red_TV", names(taylor_palettes))]),
       "gap4",
       names(taylor_palettes[grep("nineteen", names(taylor_palettes))]),
       "gap5",
